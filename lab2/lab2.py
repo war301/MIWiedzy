@@ -64,15 +64,3 @@ for element in lista [1:]:
 for key, value in slownik.items():
     print(key,value)
 
-x=lista[0]
-
-def oblicz(x,lista):
-    slown ={}
-    for para in lista:
-        c=para[0]
-        if c in slown:
-            slown[c].append(para[1])
-        else:
-            slown[c]=[]
-        slown[c].append(para[1])
-    return slown
