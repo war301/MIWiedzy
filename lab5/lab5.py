@@ -6,10 +6,6 @@ with open("../Lab_03/australian.dat","r") as file:
     matrix = [list(map(lambda a: float(a),line.split())) for line in file]
     
 matrix_2 = [x[:14] for x in matrix] #matrix without decission
-print(srednia_aryt(matrix_2[0]))
-print(wariancja(matrix_2[0]))
-print(odchylenie_std(matrix_2[0]))
-
 
 def srednia_aryt_matrix(lista):
     ones = np.ones((len(lista),1))
