@@ -1,16 +1,14 @@
 import numpy as np
 
-def wczytanie(filename):
+def wczytanie(file):
     dane = []
- 
-    with open(filename, 'r') as data:
-        for wiersz in data:
-            dane.append(list(map(lambda e : float(e), wiersz.replace('\n', '').split(' '))))
-            
-    return dane
+    with open(file, 'r') as data:
+        for line in data:
+            row = line.split()
+            dane.append(list(map(lambda x: float(x),row)))
+    return dane 
 
 matrix=wczytanie("australian.dat")
-
 matrix_2 = [x[:14] for x in matrix] #matrix without decission
 
 def srednia_aryt_matrix(lista):
