@@ -18,6 +18,3 @@ def regresja_liniowa(matrix):
     lewa_odw = lewa_odwrotnosc(matrix_x)
     return np.dot(lewa_odw,matrix_y)
     
-
-x_y=np.array([[2,1],[5,2],[7,3],[8,3]])
-print(regresja_liniowa(x_y))
