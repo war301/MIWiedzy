@@ -1,10 +1,16 @@
-import math as m
 import numpy as np
 
-matrix = []
-with open("../Lab_03/australian.dat","r") as file:
-    matrix = [list(map(lambda a: float(a),line.split())) for line in file]
-    
+def wczytanie(filename):
+    dane = []
+ 
+    with open(filename, 'r') as data:
+        for wiersz in data:
+            dane.append(list(map(lambda e : float(e), wiersz.replace('\n', '').split(' '))))
+            
+    return dane
+
+matrix=wczytanie("australian.dat")
+
 matrix_2 = [x[:14] for x in matrix] #matrix without decission
 
 def srednia_aryt_matrix(lista):
@@ -18,7 +24,7 @@ def wariancja_matrix(lista):
     return float(1/len(lista))*np.dot(minus[0],minus[0].T)
 
 def odchylenie_std_matrix(lista):
-    return m.sqrt(wariancja_matrix(lista))
+    return (wariancja_matrix(lista))**(1/2)
 
 print(srednia_aryt_matrix(matrix_2[0]))
 print(wariancja_matrix(matrix_2[0]))
