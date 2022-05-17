@@ -44,23 +44,24 @@ def wczytaj(file):
   return lista      
 
 
-def metryka_euklidesowa(listaA,listaB):
+def metryka_euklidesowa(lista,lista1):
     suma = 0
-    for i in range(len(listaA)-1):
-        suma += (listaA[i] - listaB[i]) ** 2
+    for i in range(len(lista)-1):
+        suma += (lista[i] - lista1[i]) ** 2
     return suma ** 0.5
 
+def min_odleglosc(slow):
+    pom = 1
+    min = slow[list(slow.keys())[0]]
+    for key,value in slow.items():
+        if min > value:
+            min = value
+            pom1 = key
+            pom=1
+        elif min == slow[key]:
+            pom+=1
+    if pom == 1:        
+        return pom1
 
-y = lista[0]
-slownik = {}
-
-for element in lista [1:]:
-    if slownik.get(element[-1]) == None:
-        slownik[element[-1]] = [metryka_euklidesowa(element,y)]
-    else:
-        slownik[element[-1]].append(metryka_euklidesowa(element,y))
-
-
-for key, value in slownik.items():
-    print(key,value)
+print(ustalenie_k(grupy))
 
