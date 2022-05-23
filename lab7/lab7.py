@@ -8,28 +8,28 @@ def projekcja(u,v):
     return (u_v/u_u)*u
 
 a=np.array([[1,2],
-            [0,1],  
+            [2,1],  
             [1,0]])
         
 def QR(matrix):
-    v_list=[]
+    lista=[]
     for i in range(len(a[1])):
-        v_list1=[]
+        lista_pom=[]
         for x in a:
-            v_list1.append(x[i])
-        v_list.append(v_list1)    
+            lista_pom.append(x[i])
+        lista1.append(lista_pom)    
     
-    u_list = []
+    lista1 = []
     q = []
 
-    for v in v_list:
+    for v in lista:
         v = np.array(v)
         projekcje = 0
-        for u_x in u_list:
-            u_x = np.array(u_x)
-            projekcje+=projekcja(u_x, v)
+        for u in lista1:
+            u = np.array(u)
+            projekcje+=projekcja(u, v)
         u = v - projekcje
-        u_list.append(u)
+        lista1.append(u)
         if np.linalg.norm(u)==0:
             e=u
         else:
@@ -38,8 +38,8 @@ def QR(matrix):
         
     q = np.array(q).T
     r = np.dot(q.T,a)
-    new_a = np.dot(q,r)
+    a = np.dot(q,r)
             
-    print(q,r,new_a)
+    print(q,r,a)
 
 QR(a)    
