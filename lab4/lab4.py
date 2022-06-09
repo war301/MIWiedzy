@@ -3,19 +3,20 @@ import math
 import random as rd 
 
 def monte_carlo(function, a, b, ile_punktow):
-    maxValue = max(map(lambda i : function(i), np.linspace(a, b, ile_punktow, True)))
-    points = [(rd.uniform(a,b), rd.uniform(0, maxValue)) for x in range(ile_punktow)] #uniform zwraca losową pomiędzy 
+    max = max(map(lambda i : function(i), np.linspace(a, b, ile_punktow, True)))
+    points = [(rd.uniform(a,b), rd.uniform(0, max)) for x in range(ile_punktow)] #uniform zwraca losową pomiędzy 
     print(maxValue)
     print(rd.uniform(a,b))
     print(points)
-    lower = upper = 0
+    lower = 0
+    upper = 0
     for x in points:
         if x[1] < function(x[0]):
             lower += 1
         else:
             upper += 1
  
-    return maxValue*(b-a)*(lower/(lower+upper))
+    return max*(b-a)*(lower/(lower+upper))
 
 def riemann(function, a, b, precision):
     points = tuple(map(lambda i: function(i), np.linspace(a, b, precision, True)))
