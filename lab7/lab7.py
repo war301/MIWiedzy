@@ -18,10 +18,8 @@ def QR(matrix):
         for x in a:
             lista_pom.append(x[i])
         lista1.append(lista_pom)    
-    
     lista1 = []
     q = []
-
     for v in lista:
         v = np.array(v)
         projekcje = 0
@@ -35,11 +33,10 @@ def QR(matrix):
         else:
             e = (1/np.linalg.norm(u))*u
         q.append(e)    
-        
+    
     q = np.array(q).T
     r = np.dot(q.T,a)
-    a = np.dot(q,r)
-            
+    a = np.dot(q,r)        
     print(q,r,a)
 
 QR(a)    
